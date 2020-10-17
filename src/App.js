@@ -1,12 +1,10 @@
 import React from 'react';
-import { Typography } from '@material-ui/core';
+import Nav from "./components/Nav"
 
 function App() {
   return (
-    <div className="test">
-      <Typography variant="h1" component="h2">
-        Hello
-      </Typography>
+    <div>
+      <Nav />
     </div>
   );
 }

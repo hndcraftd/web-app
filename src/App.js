@@ -12,10 +12,10 @@ function App() {
     <>
       <Switch>
         <Route path="/" component={Home} exact />
-        <Route path="/dashboard" component={Dashboard} />
-        <Route path="/insights" component={Insights} />
-        <Route path="/order" component={Order} />
-        <Route path="/auth" component={Auth} />
+        <Route path="/Dashboard" component={Dashboard} />
+        <Route path="/Insights" component={Insights} />
+        <Route path="/Order" component={Order} />
+        <Route path="/Auth" component={Auth} />
       </Switch>
     </>
   );

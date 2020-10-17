@@ -25,9 +25,9 @@ const menuItems = [
     path: "/dashboard",
   },
   {
-    title: "Order",
+    title: "Orders",
     icon: <Receipt style={{color: "#fff"}}/>,
-    path: "/order",
+    path: "/orders",
   },
   {
     title: "Insights",

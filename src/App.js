@@ -1,13 +1,20 @@
 import React from 'react';
-import { Typography } from '@material-ui/core';
+import {Route, Switch } from 'react-router-dom';
+
+import dashboard from "./pages/dashboard"
+import insights from "./pages/insights"
+import order from "./pages/order"
 
 function App() {
   return (
-    <div className="test">
-      <Typography variant="h1" component="h2">
-        Hello
-      </Typography>
-    </div>
+    <>
+      
+      <Switch>
+        <Route path="/" component={dashboard} exact />
+        <Route path="/insights" component={insights} />
+        <Route path="/order" component={order} />
+      </Switch>
+    </>
   );
 }
 

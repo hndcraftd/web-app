@@ -11,6 +11,7 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
+import Layout from '../components/Layout';
 
 const useStyles = makeStyles({
   table: {
@@ -34,8 +35,7 @@ export default function Order() {
   const classes = useStyles();
 
   return (
-    <>
-    <Nav />
+    <Layout>
     <TableContainer component={Paper}>
       <Table className={classes.table} aria-label="simple table">
         <TableHead>
@@ -62,6 +62,6 @@ export default function Order() {
         </TableBody>
       </Table>
     </TableContainer>
-    </>
+    </Layout>
   );
 }

@@ -1,20 +1,21 @@
 import React from 'react';
 import {Route, Switch } from 'react-router-dom';
 
-import home from "./pages/home"
-import dashboard from "./pages/dashboard"
-import insights from "./pages/insights"
-import order from "./pages/order"
+import Home from "./pages/Home"
+import Dashboard from "./pages/Dashboard"
+import Insights from "./pages/Insights"
+import Order from "./pages/Order"
+import Login from "./pages/Login"
 
 function App() {
   return (
     <>
-      
       <Switch>
-        <Route path="/" component={home} exact />
-        <Route path="/dashboard" component={dashboard} />
-        <Route path="/insights" component={insights} />
-        <Route path="/order" component={order} />
+        <Route path="/" component={Home} exact />
+        <Route path="/dashboard" component={Dashboard} />
+        <Route path="/insights" component={Insights} />
+        <Route path="/order" component={Order} />
+        <Route path="/login" component={Login} />
       </Switch>
     </>
   );

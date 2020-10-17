@@ -1,11 +1,10 @@
-import React from 'react'
-import Nav from '../components/Nav'
+import React from "react";
+import Layout from "../components/Layout";
 
 export default function order() {
   return (
-    <>
-      <Nav />
-      <h1>Order Page</h1>
-    </>
-  )
+     <Layout>
+        <h1>Order Page</h1>
+    </Layout>
+  );
 }

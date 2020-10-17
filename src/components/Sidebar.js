@@ -15,42 +15,31 @@ import React, { ReactElement } from "react";
 import routes from "../App.js";
 import { useHistory } from "react-router";
 
-const styles = makeStyles((theme) => ({
-  taskSidebar: {
-    background: "#FFFFFF",
-    width: 200,
-    gridArea: "sidebar",
-    padding: 15,
-    "& > *": {
-      marginBottom: 10,
-    },
-  },
-}));
+import "../scss/components/sidebar.scss"
 
 
 const menuItems = [
   {
     title: "Dashboard",
-    icon: <Home />,
+    icon: <Home style={{color: "#fff"}} />,
     path: "/",
   },
   {
     title: "Order",
-    icon: <Receipt />,
+    icon: <Receipt style={{color: "#fff"}}/>,
     path: "/order",
   },
   {
     title: "Insights",
-    icon: <Equalizer />,
+    icon: <Equalizer  style={{color: "#fff"}}/>,
     path: "/insights",
   },
 ];
 
 export default function Sidebar(){
   const history = useHistory();
-  const classes = styles();
   return (
-    <div className={classes.taskSidebar}>
+    <div className="sidebar">
       <List component="nav">
         {menuItems.map((item) => (
           <ListItem

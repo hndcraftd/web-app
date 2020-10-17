@@ -2,6 +2,7 @@ import React from "react";
 import Nav from "../components/Nav";
 import "../assets/styles/login-style.css";
 import log from "../assets/log.svg";
+import register from "../assets/register.svg"
 
 export default function Auth() {
   let cont = true;
@@ -109,7 +110,7 @@ export default function Auth() {
                 Sign in
               </button>
             </div>
-            <img src="../assets/register.svg" className="image" alt="" />
+            <img src={register} className="image" alt="" />
           </div>
         </div>
       </div>

@@ -1,11 +1,10 @@
 import React from 'react'
-import Nav from '../components/Nav'
+import Layout from "../components/Layout";
 
 export default function home() {
   return (
-    <>
-      <Nav />
-      <h1>Home Page</h1>
-    </>
+    <Layout>
+        <h1>Home Page</h1>
+    </Layout>
   )
 }

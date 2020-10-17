@@ -10,7 +10,7 @@ export default function Login() {
 
     function handleClick(e) {
       e.preventDefault()
-      const container = document.querySelector(".container")
+      const container = document.querySelector(".cont")
 
       if(cont) {
          container.classList.add("sign-up-mode");
@@ -28,7 +28,7 @@ export default function Login() {
   return (
     <>
       <Nav />
-      <div className="container">
+      <div className="cont">
         <div className="forms-container">
           <div className="signin-signup">
             <form action="#" className="sign-in-form">

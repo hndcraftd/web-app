@@ -11,16 +11,12 @@ input {
   font-family: "Poppins", sans-serif;
 }
 
-.cont {
+.container {
   position: relative;
   width: 100%;
-  background-color: #cfcfcf;
+  background-color: #fff;
   min-height: 100vh;
   overflow: hidden;
-}
-
-.sign-up-mode {
-  background-color: #bada55;
 }
 
 .forms-container {
@@ -73,7 +69,7 @@ form.signin-form {
 .input-field {
   max-width: 380px;
   width: 100%;
-  background-color: #fff;
+  background-color: #cfcfcf;
   margin: 10px 0;
   height: 55px;
   border-radius: 55px;
@@ -216,13 +212,11 @@ form.signin-form {
   font-weight: 600;
   line-height: 1;
   font-size: 1.5rem;
-  color: #000;
 }
 
 .panels p {
   font-size: 0.95rem;
   padding: 0.7rem 0;
-  color: #000;
 }
 
 .btn.transparent {

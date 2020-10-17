@@ -23,7 +23,7 @@ const Nav = () => {
       </li>
     </ul>
     <form className="form-inline my-2 my-lg-0">
-      <Link className="login-button" to="/login"><button className="btn btn-outline-success my-2 my-sm-0 mr-3" type="submit">Login</button></Link>
+      <Link className="login-button" to="/auth"><button className="btn btn-outline-success my-2 my-sm-0 mr-3" type="submit">Login</button></Link>
     </form>
   </div>
 </nav>

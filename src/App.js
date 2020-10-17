@@ -1,11 +1,11 @@
-import React from 'react';
-import {Route, Switch } from 'react-router-dom';
+import React from "react";
+import { Route, Switch } from "react-router-dom";
 
-import Home from "./pages/Home"
-import Dashboard from "./pages/Dashboard"
-import Insights from "./pages/Insights"
-import Order from "./pages/Order"
-import Login from "./pages/Login"
+import Home from "./pages/Home";
+import Dashboard from "./pages/Dashboard";
+import Insights from "./pages/Insights";
+import Order from "./pages/Order";
+import Auth from "./pages/Auth";
 
 function App() {
   return (
@@ -15,7 +15,7 @@ function App() {
         <Route path="/dashboard" component={Dashboard} />
         <Route path="/insights" component={Insights} />
         <Route path="/order" component={Order} />
-        <Route path="/login" component={Login} />
+        <Route path="/auth" component={Auth} />
       </Switch>
     </>
   );

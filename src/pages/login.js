@@ -3,7 +3,7 @@ import Nav from '../components/Nav'
 import '../assets/styles/login-style.css'
 import log from "../assets/log.svg";
 
-export default function login() {
+export default function Login() {
   let cont = true
   
 

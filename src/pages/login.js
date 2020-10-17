@@ -4,12 +4,12 @@ import '../assets/styles/login-style.css'
 import log from "../assets/log.svg";
 
 export default function login() {
-  let cont = false
+  let cont = true
   
 
     function handleClick(e) {
       e.preventDefault()
-      const container = document.querySelector(".cont")
+      const container = document.querySelector(".container")
 
       if(cont) {
          container.classList.add("sign-up-mode");
@@ -27,7 +27,7 @@ export default function login() {
   return (
     <>
       <Nav />
-      <div className="cont">
+      <div className="container">
         <div className="forms-container">
           <div className="signin-signup">
             <form action="#" className="sign-in-form">
@@ -40,7 +40,7 @@ export default function login() {
                 <i className="fas fa-lock"></i>
                 <input type="password" placeholder="Password" />
               </div>
-              <input type="submit" value="Login" className="btn solid"/>
+              <input type="submit" value="Login" className="btn solid" />
               <p className="social-text">Or Sign in with Google</p>
               <div className="social-media">
                 <a href="google.com" className="social-icon">
@@ -62,7 +62,7 @@ export default function login() {
                 <i className="fas fa-lock"></i>
                 <input type="password" placeholder="Password" />
               </div>
-              <button type="submit" className="btn" value="Sign up"/>
+              <button type="submit" className="btn" >Sign up</button>
               <p className="social-text">Or Sign up with Google</p>
               <div className="social-media">
                 <a href="google.com" className="social-icon">

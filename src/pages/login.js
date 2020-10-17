@@ -40,7 +40,7 @@ export default function login() {
                 <i className="fas fa-lock"></i>
                 <input type="password" placeholder="Password" />
               </div>
-              <input type="submit" value="Login" className="btn solid" onClick={(e) => {handleClick(e)}}/>
+              <input type="submit" value="Login" className="btn solid"/>
               <p className="social-text">Or Sign in with Google</p>
               <div className="social-media">
                 <a href="google.com" className="social-icon">
@@ -62,7 +62,7 @@ export default function login() {
                 <i className="fas fa-lock"></i>
                 <input type="password" placeholder="Password" />
               </div>
-              <button type="submit" className="btn" value="Sign up"  onClick={(e) => {handleClick(e)}}/>
+              <button type="submit" className="btn" value="Sign up"/>
               <p className="social-text">Or Sign up with Google</p>
               <div className="social-media">
                 <a href="google.com" className="social-icon">
@@ -80,7 +80,7 @@ export default function login() {
               <p>
                 Sign up to start delivering live updates to your clients and explore insight about your company!
               </p>
-              <button className="btn transparent" id="sign-up-btn" >
+              <button className="btn transparent" id="sign-up-btn" onClick={(e) => {handleClick(e)}}>
                 Register
               </button>
             </div>
@@ -92,7 +92,7 @@ export default function login() {
               <p>
                 Login to access your dashboard and view orders and insights.
               </p>
-              <button className="btn transparent" id="sign-in-btn">
+              <button className="btn transparent" id="sign-in-btn" onClick={(e) => {handleClick(e)}}>
                 Sign in
               </button>
             </div>

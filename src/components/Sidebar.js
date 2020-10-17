@@ -27,13 +27,8 @@ const styles = makeStyles((theme) => ({
   },
 }));
 
-interface MenuItem {
-  title: string;
-  path: string;
-  icon: ReactElement;
-}
 
-const menuItems: MenuItem[] = [
+const menuItems = [
   {
     title: "Dashboard",
     icon: <Home />,
@@ -51,7 +46,7 @@ const menuItems: MenuItem[] = [
   },
 ];
 
-export default function Sidebar(): JSX.Element {
+export default function Sidebar(){
   const history = useHistory();
   const classes = styles();
   return (

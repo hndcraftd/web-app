@@ -6,8 +6,13 @@ export default function order() {
   return (
     <>
       <Nav />
-      <Sidebar />
-      <h1>Order Page</h1>
+      <main className="container-fluid d-flex mr-3">
+        <Sidebar />
+        <div>
+          <h1>Order Page</h1>
+        </div>
+      </main>
+      
     </>
   );
 }

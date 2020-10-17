@@ -6,9 +6,12 @@ export default function insights() {
   return (
     <>
       <Nav />
-      <Sidebar />
+      <main className="container-fluid d-flex">
+        <Sidebar />
+        <h1>Insights Page</h1>
+      </main>
 
-      <h1>Insights Page</h1>
+      
     </>
   );
 }

@@ -6,8 +6,10 @@ export default function dashboard() {
   return (
     <>
       <Nav />
-      <Sidebar />
-      <h1>Dashboard Page</h1>
+      <main className="container-fluid d-flex">
+        <Sidebar />
+        <h1>Dashboard Page</h1>
+      </main>
     </>
   );
 }

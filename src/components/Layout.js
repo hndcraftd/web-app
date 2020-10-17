@@ -1,17 +1,17 @@
-import React from 'react'
-import Nav from './Nav'
-import Sidebar from './Sidebar'
+import React from "react";
+import Nav from "./Nav";
+import Sidebar from "./Sidebar";
 
-import "../scss/components/layout.scss"
+import "../scss/components/layout.scss";
 
-export default function Layout({children}) {
+export default function Layout({ children, shouldShowSidebar = true }) {
   return (
     <>
       <Nav />
       <main className="container-fluid d-flex">
-        <Sidebar />
+        {shouldShowSidebar && <Sidebar />}
         {children}
       </main>
     </>
-  )
+  );
 }

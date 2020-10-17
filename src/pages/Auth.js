@@ -1,119 +1,105 @@
-import React from "react";
-import Nav from "../components/Nav";
-import "../assets/styles/login-style.css";
-import log from "../assets/log.svg";
-import register from "../assets/register.svg"
+import React, { useCallback, useState } from "react";
+import Layout from "../components/Layout";
+// import CssBaseline from "@material-ui/core/CssBaseline";
+import Link from "@material-ui/core/Link";
+import Box from "@material-ui/core/Box";
+import Typography from "@material-ui/core/Typography";
+import Container from "@material-ui/core/Container";
+import app from "../services/firebase";
+import Login from "../components/Login";
+import Register from "../components/Register";
+import { useHistory } from "react-router";
+import tokenCache from "../services/tokenCache";
 
-export default function Auth() {
-  let cont = true;
+function Copyright() {
+  return (
+    <Typography variant="body2" color="textSecondary" align="center">
+      {"Copyright © "}
+      {/* TODO: update ref url */}
+      <Link color="inherit" href="https://material-ui.com/">
+        Handcraftd
+      </Link>{" "}
+      {new Date().getFullYear()}
+      {"."}
+    </Typography>
+  );
+}
 
-  function handleClick(e) {
-    e.preventDefault();
-    const container = document.querySelector(".container");
+export default function SignIn() {
+  const history = useHistory();
 
-    if (cont) {
-      container.classList.add("sign-up-mode");
-      console.log(container.classList);
-    } else {
-      container.classList.remove("sign-up-mode");
-      console.log(container.classList);
-    }
+  const page = history.location.search.replace("?form=", "");
+  const shouldShowLoginParam = page === "register";
 
-    cont = !cont;
-    console.log(cont);
-  }
+  console.log("SHOULD", history);
+
+  const [shouldShowLogin, setShouldShowLogin] = useState(!shouldShowLoginParam);
+
+  const [loginInfo, setLoginInfo] = useState({ email: "", password: "" });
+  const [registrationInfo, setRegistrationInfo] = useState({
+    email: "",
+    password: "",
+  });
+
+  const handleLogin = useCallback(
+    async (event) => {
+      event.preventDefault();
+      const { email, password } = loginInfo;
+      console.log(email, password, "EMAIL");
+      try {
+        await app.auth().signInWithEmailAndPassword(email, password);
+        const token = await app.auth().currentUser.getIdToken();
+
+        tokenCache.set(token);
+        history.push("/dashboard");
+      } catch (error) {
+        console.log(error);
+      }
+    },
+    [loginInfo, history]
+  );
+
+  const handleRegister = useCallback(
+    async (event) => {
+      event.preventDefault();
+      const { email, password, firstName, lastName } = registrationInfo;
+
+      try {
+        await app.auth().createUserWithEmailAndPassword(email, password);
+        const token = await app.auth().currentUser.getIdToken();
+
+        tokenCache.set(token);
+
+        //TODO: send first and last name to backend with token
+        history.push("/");
+      } catch (error) {
+        console.log(error);
+      }
+    },
+    [registrationInfo, history]
+  );
 
   return (
-    <>
-      <Nav />
-      <div className="container">
-        <div className="forms-container">
-          <div className="signin-signup">
-            <form action="#" className="sign-in-form">
-              <h2 className="title">Sign in</h2>
-              <div className="input-field">
-                <i className="fas fa-user"></i>
-                <input type="text" placeholder="Username" />
-              </div>
-              <div className="input-field">
-                <i className="fas fa-lock"></i>
-                <input type="password" placeholder="Password" />
-              </div>
-              <input type="submit" value="Login" className="btn solid" />
-              <p className="social-text">Or Sign in with Google</p>
-              <div className="social-media">
-                <a href="google.com" className="social-icon">
-                  <i className="fab fa-google"></i>
-                </a>
-              </div>
-            </form>
-            <form action="/" className="sign-up-form">
-              <h2 className="title">Register</h2>
-              <div className="input-field">
-                <i className="fas fa-user"></i>
-                <input type="text" placeholder="Username" />
-              </div>
-              <div className="input-field">
-                <i className="fas fa-envelope"></i>
-                <input type="email" placeholder="Email" />
-              </div>
-              <div className="input-field">
-                <i className="fas fa-lock"></i>
-                <input type="password" placeholder="Password" />
-              </div>
-              <button type="submit" className="btn">
-                Sign up
-              </button>
-              <p className="social-text">Or Sign up with Google</p>
-              <div className="social-media">
-                <a href="google.com" className="social-icon">
-                  <i className="fab fa-google"></i>
-                </a>
-              </div>
-            </form>
-          </div>
-        </div>
-
-        <div className="panels-container">
-          <div className="panels left-panel">
-            <div className="content">
-              <h3>New here ?</h3>
-              <p>
-                Sign up to start delivering live updates to your clients and
-                explore insight about your company!
-              </p>
-              <button
-                className="btn transparent"
-                id="sign-up-btn"
-                onClick={(e) => {
-                  handleClick(e);
-                }}
-              >
-                Register
-              </button>
-            </div>
-            <img src={log} className="image" alt="" />
-          </div>
-          <div className="panels right-panel">
-            <div className="content">
-              <h3>One of us ?</h3>
-              <p>
-                Login to access your dashboard and view orders and insights.
-              </p>
-              <button
-                className="btn transparent"
-                id="sign-in-btn"
-                onClick={(e) => {
-                  handleClick(e);
-                }}
-              >
-                Sign in
-              </button>
-            </div>
-            <img src={register} className="image" alt="" />
-          </div>
-        </div>
-      </div>
-    </>
+    <Layout shouldShowSidebar={false}>
+      <Container component="main" maxWidth="xs">
+        {/* <CssBaseline /> */}
+        {shouldShowLogin ? (
+          <Login
+            setLoginInfo={setLoginInfo}
+            handleLogin={handleLogin}
+            setLogin={setShouldShowLogin}
+          />
+        ) : (
+          <Register
+            setRegistrationInfo={setRegistrationInfo}
+            handleRegister={handleRegister}
+            setLogin={setShouldShowLogin}
+          />
+        )}
+        <Box mt={8}>
+          <Copyright />
+        </Box>
+      </Container>
+    </Layout>
   );
 }

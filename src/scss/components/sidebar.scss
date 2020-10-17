@@ -1,5 +1,8 @@
 .sidebar {
-  background: #122932;
+  background: linear-gradient(rgba(18, 41, 50, 0.7), rgba(18, 41, 50, 0.7)),
+    url("../../assets/sidebar.jpg") bottom center no-repeat;
+
+  background-size: cover;
   height: 100vh;
   width: 200px;
   padding: 15px;

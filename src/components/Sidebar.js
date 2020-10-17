@@ -22,7 +22,7 @@ const menuItems = [
   {
     title: "Dashboard",
     icon: <Home style={{color: "#fff"}} />,
-    path: "/",
+    path: "/dashboard",
   },
   {
     title: "Order",

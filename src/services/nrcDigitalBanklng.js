@@ -23,7 +23,7 @@ export const getTransactions = async () => {
 };
 
 export const auth = async () => {
-  const data = await axios.post(AUTH_API_URL, {
+  const data = await axios.get(AUTH_API_URL, {
     headers: {
       Authorization:
         "Basic alI3RWg3dUF5cFQ0dEpMb0xVMmRBTVlHQ1l5ejZsVjg6T3FRZXQ0OE5YWDdTQXB4SA==",
@@ -36,3 +36,5 @@ export const auth = async () => {
 
   console.log(data);
 };
+
+auth()

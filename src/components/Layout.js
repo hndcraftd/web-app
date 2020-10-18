@@ -4,6 +4,8 @@ import Sidebar from "./Sidebar";
 
 import "../scss/components/layout.scss";
 
+import tokenCache from "../services/tokenCache";
+
 export default function Layout({ children, shouldShowSidebar = true }) {
   return (
     <>

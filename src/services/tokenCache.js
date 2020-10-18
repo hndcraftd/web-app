@@ -6,4 +6,8 @@ export default {
   set: (token) => {
     localStorage.setItem("token", token + "");
   },
+
+  delete: (token) => {
+    localStorage.removeItem("token")
+  },
 };

@@ -1,8 +1,19 @@
 import React from 'react'
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import Logo from '../assets/logo.svg';
 
+import tokenCache from "../services/tokenCache";
+
+
+
 const Nav = () => {
+  const token  = tokenCache.get()
+  const history = useHistory();
+
+  const logout = (token) => {
+    tokenCache.delete(token)
+    history.push("/");
+  }
   return (
    <nav className="navbar navbar-expand-lg navbar-light bg-light">
   <Link className="navbar-brand" to="/"><img src={Logo} width="200" alt="Lorem Ipsum"/></Link>
@@ -23,7 +34,9 @@ const Nav = () => {
       </li>
     </ul>
     <form className="form-inline my-2 my-lg-0">
-      <Link className="login-button" to="/auth"><button className="btn btn-outline-success my-2 my-sm-0 mr-3" type="submit">Login</button></Link>
+      {!token ? 
+        <Link className="login-button" to="/auth"><button className="btn btn-outline-success my-2 my-sm-0 mr-3" type="submit">Login</button></Link> 
+        :  <button className="btn btn-outline-success my-2 my-sm-0 mr-3" type="button" onClick={(token) => logout(token)}>Logout</button>}
     </form>
   </div>
 </nav>

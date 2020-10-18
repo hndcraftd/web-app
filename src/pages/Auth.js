@@ -10,6 +10,7 @@ import Login from "../components/Login";
 import Register from "../components/Register";
 import { useHistory } from "react-router";
 import tokenCache from "../services/tokenCache";
+import axios from "axios"
 
 function Copyright() {
   return (
@@ -68,15 +69,18 @@ export default function SignIn() {
         await app.auth().createUserWithEmailAndPassword(email, password);
         const token = await app.auth().currentUser.getIdToken();
 
+        const user = {firstName, lastName}
+
         tokenCache.set(token);
 
         //TODO: send first and last name to backend with token
+        const res = await axios.post("http://1896d783ea31.ngrok.io/users", user, {headers: {Authorization: `${token}`}})
         history.push("/");
       } catch (error) {
         console.log(error);
       }
     },
-    [registrationInfo, history]
+    [history, registrationInfo]
   );
 
   return (

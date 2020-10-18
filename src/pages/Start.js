@@ -6,7 +6,7 @@ import LocalShippingIcon from '@material-ui/icons/LocalShipping';
 
 export default function Start() {
   return (
-    <Layout>
+    <Layout shouldShowSidebar={false}>
         <h1>Getting Started</h1>
     </Layout>
   );

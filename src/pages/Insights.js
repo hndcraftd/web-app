@@ -5,7 +5,7 @@ import AttachMoneyIcon from '@material-ui/icons/AttachMoney';
 
 export default function Insights() {
   return (
-     <Layout>
+     <Layout shouldShowHeader={false}>
         <div className="container d-flex">
           <div class="row" style={{width: "100%"}}>
             <div class="col-xl-4">

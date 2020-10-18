@@ -6,7 +6,7 @@ import LocalShippingIcon from '@material-ui/icons/LocalShipping';
 
 export default function Dashboard() {
   return (
-    <Layout>
+    <Layout shouldShowHeader={false}>
         <h1>Hello, Name</h1>
     </Layout>
   );

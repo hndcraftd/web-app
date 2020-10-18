@@ -10,6 +10,7 @@ import Auth from "./pages/Auth";
 import Start from "./pages/Start";
 import Benefits from "./pages/Benefits";
 import About from "./pages/About";
+import Status from "./pages/Status";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
         <Route path="/benefits" component={Benefits} />
         <Route path="/about" component={About} />
 
+        <Route path="/status/:id" component={Status} />
       </Switch>
     </>
   );

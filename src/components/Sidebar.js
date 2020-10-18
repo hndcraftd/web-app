@@ -1,6 +1,7 @@
 import { List, ListItem, ListItemIcon, ListItemText } from "@material-ui/core";
 import { Equalizer, Home, Receipt } from "@material-ui/icons";
 import React from "react";
+import { Link } from "react-router-dom";
 import { useHistory } from "react-router";
 import tokenCache from "../services/tokenCache";
 import Image from "material-ui-image";
@@ -35,12 +36,14 @@ export default function Sidebar() {
   return (
     <div className="sidebar">
       <div>
-        <img
-          src={Logo}
-          cover={false}
-          width={164}
-          style={{padding: "12px"}}
-        />
+        <Link className="navbar-brand" to="/">
+            <img
+            src={Logo}
+            cover={false}
+            width={164}
+            style={{padding: "12px"}}
+          />
+        </Link>
         <br />
         <br />
         <List component="nav">
@@ -64,7 +67,7 @@ export default function Sidebar() {
         </List>
       </div>
       <button
-        className="btn btn-outline-success my-2 my-sm-0 mr-3"
+        className="btn btn-danger my-2 my-sm-0 mr-3"
         type="button"
         onClick={(token) => logout(token)}
       >

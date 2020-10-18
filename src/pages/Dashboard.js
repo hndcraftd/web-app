@@ -114,7 +114,7 @@ export default function Dashboard() {
                 </div>
               ) : (
                 <div>
-                  <Typography className={classes.instructions}>{getStepContent(activeStep)}</Typography>
+                  <Typography className={classes.instructions} style={{color: "#000000"}}>{getStepContent(activeStep)}</Typography>
                   <div>
                     <Button disabled={activeStep === 0} onClick={handleBack} className={classes.button}>
                       Back

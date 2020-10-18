@@ -24,13 +24,10 @@ const Nav = () => {
   <div className="collapse navbar-collapse" id="navbarSupportedContent">
     <ul className="navbar-nav mr-auto">
       <li className="nav-item">
-        <Link to="/dashboard" className="nav-link" >Dashboard</Link>
+        <Link to="/get-started" className="nav-link" >Get Started</Link>
       </li>
       <li className="nav-item">
-        <Link to="/orders" className="nav-link" >Orders</Link>
-      </li>
-      <li className="nav-item">
-        <Link to="/insights" className="nav-link" >Insights</Link>
+        <Link to="/about" className="nav-link" >About</Link>
       </li>
     </ul>
     <form className="form-inline my-2 my-lg-0">

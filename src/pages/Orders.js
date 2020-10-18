@@ -4,14 +4,8 @@
 import React from 'react';
 import { useHistory } from "react-router";
 import { makeStyles } from '@material-ui/core/styles';
-import Table from '@material-ui/core/Table';
-import TableBody from '@material-ui/core/TableBody';
-import TableCell from '@material-ui/core/TableCell';
-import TableContainer from '@material-ui/core/TableContainer';
-import TableHead from '@material-ui/core/TableHead';
-import TableRow from '@material-ui/core/TableRow';
-import Paper from '@material-ui/core/Paper';
 import Layout from '../components/Layout';
+import { Chip, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@material-ui/core';
 
 const useStyles = makeStyles({
   table: {
@@ -40,30 +34,35 @@ export default function Order() {
   }
   return (
     <Layout shouldShowHeader={false}>
-    <TableContainer component={Paper}>
-      <Table className={classes.table} aria-label="simple table">
-        <TableHead>
-          <TableRow>
-            <TableCell>Order ID  </TableCell>
-            <TableCell align="left">Description</TableCell>
-            <TableCell align="left">Date</TableCell>
-            <TableCell align="left">Customer</TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {rows.map((row) => (
-            <TableRow key={row.id} onClick={()=>navigateToOrder(row.id)}>
-              <TableCell component="th" scope="row" >
-                {row.id}
-              </TableCell>
-              <TableCell align="left">{row.description}</TableCell>
-              <TableCell align="left">{row.date}</TableCell>
-              <TableCell align="left">{row.customer}</TableCell>
+      <div className="container mt-3">
+        <h1 className="mb-3">Order List</h1>
+        <TableContainer component={Paper}>
+        <Table className={classes.table} aria-label="simple table">
+          <TableHead>
+            <TableRow>
+              <TableCell>Order ID  </TableCell>
+              <TableCell align="left">Description</TableCell>
+              <TableCell align="left">Status</TableCell>
+              <TableCell align="left">Date</TableCell>
+              <TableCell align="left">Customer</TableCell>
             </TableRow>
-          ))}
-        </TableBody>
-      </Table>
-    </TableContainer>
+          </TableHead>
+          <TableBody>
+            {rows.map((row) => (
+              <TableRow key={row.id} onClick={()=>navigateToOrder(row.id)}>
+                <TableCell component="th" scope="row" >
+                  {row.id}
+                </TableCell>
+                <TableCell align="left">{row.description}</TableCell>
+                <TableCell align="left"><Chip style={{background: "#28a745", color:"#fff"}} size="small" label="Fulfilled"/></TableCell>
+                <TableCell align="left">{row.date}</TableCell>
+                <TableCell align="left">{row.customer}</TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </TableContainer>
+      </div>
     </Layout>
   );
 }

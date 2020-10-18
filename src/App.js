@@ -7,6 +7,8 @@ import Insights from "./pages/Insights";
 import Orders from "./pages/Orders";
 import Order from "./pages/Order";
 import Auth from "./pages/Auth";
+import GetStarted from "./pages/GetStarted";
+import About from "./pages/About";
 
 function App() {
   return (
@@ -18,6 +20,8 @@ function App() {
         <Route path="/orders/:id" component={Order} />
         <Route path="/orders" component={Orders} />
         <Route path="/auth" component={Auth} />
+        <Route path="/about" component={About} />
+        <Route path="/get-started" component={GetStarted} />
 
       </Switch>
     </>

@@ -4,6 +4,7 @@ import React from "react";
 import { useHistory } from "react-router";
 import tokenCache from "../services/tokenCache";
 import Image from "material-ui-image";
+import Logo from "../assets/BroadCraft Light.svg"
 import "../scss/components/sidebar.scss";
 
 const menuItems = [
@@ -34,13 +35,12 @@ export default function Sidebar() {
   return (
     <div className="sidebar">
       <div>
-        <Image
-          src={
-            "https://upload.wikimedia.org/wikipedia/en/4/45/Notion_app_logo.png"
-          }
+        <img
+          src={Logo}
           cover={false}
+          width={164}
+          style={{padding: "12px"}}
         />
-        <br />
         <br />
         <br />
         <List component="nav">

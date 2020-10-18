@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Logo from "../assets/logo.svg";
+import Logo from "../assets/BroadCraft Dark.svg"
 import tokenCache from "../services/tokenCache";
 
 const Nav = () => {
@@ -9,7 +9,7 @@ const Nav = () => {
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <Link className="navbar-brand" to="/">
-        <img src={Logo} width="200" alt="Lorem Ipsum" />
+        <img src={Logo} width="320" alt="Lorem Ipsum" style={{padding: "12px"}}/>
       </Link>
       <button
         className="navbar-toggler"

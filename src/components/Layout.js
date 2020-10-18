@@ -9,7 +9,7 @@ import tokenCache from "../services/tokenCache";
 export default function Layout({ children, shouldShowSidebar = true }) {
   return (
     <>
-      <Nav />
+      {<Nav />}
       <main className="container-fluid d-flex">
         {shouldShowSidebar && <Sidebar />}
         {children}

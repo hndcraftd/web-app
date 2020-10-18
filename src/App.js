@@ -11,6 +11,7 @@ import Start from "./pages/Start";
 import Benefits from "./pages/Benefits";
 import About from "./pages/About";
 import Status from "./pages/Status";
+import Video from "./pages/Video";
 
 function App() {
   return (
@@ -25,6 +26,8 @@ function App() {
         <Route path="/start" component={Start} />
         <Route path="/benefits" component={Benefits} />
         <Route path="/about" component={About} />
+        <Route path="/promo-video" component={Video} />
+        
 
         <Route path="/status/:id" component={Status} />
       </Switch>

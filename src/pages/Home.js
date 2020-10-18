@@ -11,7 +11,7 @@ export default function Home() {
         <div className="container d-flex justify-content-center flex-column align-items-center">
           <h1 className="display-3">Build transparent customer products.</h1>
             <p className="lead">
-              We'll manage your delivery updates
+              Connect with clients, develop a more distinguishable brand and optimize your business's performance
             </p>
         </div>
       </div>

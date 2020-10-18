@@ -1,9 +1,7 @@
 import React from "react";
 import clsx from "clsx";
-import PropTypes from "prop-types";
 import {
   Avatar,
-  Box,
   Card,
   CardContent,
   Grid,
@@ -11,7 +9,6 @@ import {
   colors,
   makeStyles,
 } from "@material-ui/core";
-import ArrowUpwardIcon from "@material-ui/icons/ArrowUpward";
 import WidgetsIcon from "@material-ui/icons/Widgets";
 
 const useStyles = makeStyles((theme) => ({

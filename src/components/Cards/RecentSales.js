@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import clsx from "clsx";
 import moment from "moment";
 import { v4 as uuid } from "uuid";
-import PropTypes from "prop-types";
 import {
   Box,
   Button,
@@ -20,41 +19,42 @@ import {
   makeStyles,
 } from "@material-ui/core";
 import ArrowRightIcon from "@material-ui/icons/ArrowRight";
+import { useHistory } from "react-router";
 
 const data = [
   {
     id: uuid(),
-    ref: "DX14562",
+    ref: "55c9ac78-7e3a-497f-b6b9-3a1bbf820b2f",
     amount: 30.5,
     customer: {
       name: "Jehf Dene",
     },
     createdAt: 1603003794382,
-    status: "pending",
+    status: "in progress",
   },
   {
     id: uuid(),
-    ref: "GE50412",
+    ref: "55c9ac78-7e3a-497f-b6b9-3a1bbf820b2f",
     amount: 25.1,
     customer: {
       name: "Rara Idrees",
     },
     createdAt: 1603003794382,
-    status: "delivered",
+    status: "completed",
   },
   {
     id: uuid(),
-    ref: "GE23468",
+    ref: "55c9ac78-7e3a-497f-b6b9-3a1bbf820b2f",
     amount: 10.99,
     customer: {
       name: "Laro Reyes",
     },
     createdAt: 1603003794382,
-    status: "refunded",
+    status: "completed",
   },
   {
     id: uuid(),
-    ref: "QE81230",
+    ref: "55c9ac78-7e3a-497f-b6b9-3a1bbf820b2f",
     amount: 96.43,
     customer: {
       name: "DJ Harris",
@@ -64,7 +64,7 @@ const data = [
   },
   {
     id: uuid(),
-    ref: "UP41254",
+    ref: "55c9ac78-7e3a-497f-b6b9-3a1bbf820b2f",
     amount: 32.54,
     customer: {
       name: "Raul Fai",
@@ -74,13 +74,13 @@ const data = [
   },
   {
     id: uuid(),
-    ref: "CDD1044",
+    ref: "55c9ac78-7e3a-497f-b6b9-3a1bbf820b2f",
     amount: 16.76,
     customer: {
       name: "Shirls Whirls",
     },
     createdAt: 1603003794382,
-    status: "delivered",
+    status: "in progress",
   },
 ];
 
@@ -94,6 +94,7 @@ const useStyles = makeStyles(() => ({
 const RecentSales = ({ className, ...rest }) => {
   const classes = useStyles();
   const [orders] = useState(data);
+  const history = useHistory();
 
   return (
     <Card className={clsx(classes.root, className)} {...rest}>
@@ -117,7 +118,14 @@ const RecentSales = ({ className, ...rest }) => {
           </TableHead>
           <TableBody>
             {orders.map((order) => (
-              <TableRow hover key={order.id}>
+              <TableRow
+                className="hover-pointer"
+                hover
+                key={order.id}
+                onClick={(e) => {
+                  return history.push(`/orders/${order.id}`);
+                }}
+              >
                 <TableCell>{order.ref}</TableCell>
                 <TableCell>{order.customer.name}</TableCell>
                 <TableCell>

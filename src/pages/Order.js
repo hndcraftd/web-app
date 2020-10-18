@@ -1,31 +1,21 @@
 import React from "react";
 import { useHistory } from "react-router";
-import { makeStyles } from "@material-ui/core/styles";
 import Layout from "../components/Layout";
-
-const useStyles = makeStyles({
-  table: {
-    minWidth: 650,
-  },
-});
-
-function createData(id, description, progress, date, customer) {
-  return { id, description, progress, date, customer };
-}
+import { Container, Typography } from "@material-ui/core";
+import { getTransactions } from "../services/nrcDigitalBanklng";
 
 export default function Order() {
-  const classes = useStyles();
   const history = useHistory();
 
   const orderID = history.location.pathname.replace("/orders/", "");
 
-  function navigateToOrder(id) {
-    history.push(`/order/${id}`);
-  }
+  React.useEffect(() => {
+    getTransactions().then((data) => console.log(data));
+  });
 
   return (
     <Layout shouldShowHeader={false}>
-      <h1>{`Order #${orderID}`}</h1>
+      <Container>Hellpsfuaihwhfi</Container>
     </Layout>
   );
 }

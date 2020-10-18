@@ -1,42 +1,38 @@
 import React from "react";
 import Layout from "../components/Layout";
-import LocalShippingIcon from '@material-ui/icons/LocalShipping';
-import AttachMoneyIcon from '@material-ui/icons/AttachMoney';
+import { Container, Grid } from "@material-ui/core";
+import CustomerCard from "../components/Cards/Customers";
+import OrdersCard from "../components/Cards/OrderCard";
+import OrdersCompleteCard from "../components/Cards/OrdersComplete";
+import ProgressCard from "../components/Cards/OrderStatus";
+import RecentSales from "../components/Cards/RecentSales";
+import ProductsCard from "../components/Cards/Products";
 
 export default function Insights() {
   return (
-     <Layout>
-        <div className="container d-flex">
-          <div class="row" style={{width: "100%"}}>
-            <div class="col-xl-4">
-              <div class="card">
-                <div class="card-body">
-                  <h2 class="card-title">{<LocalShippingIcon />} Orders</h2>
-                  <hr/>
-                  <h5 class="card-text">25</h5>
-                </div>
-              </div>
-            </div>
-            <div class="col-xl-4">
-              <div class="card">
-                <div class="card-body">
-                  <h2 class="card-title">{<AttachMoneyIcon />} Revenue</h2>
-                  <hr/>
-                  <h5 class="card-text">$3,425</h5>
-                </div>
-              </div>
-            </div>
-            <div class="col-xl-4">
-              <div class="card"> 
-                <div class="card-body">
-                  <h2 class="card-title">{<LocalShippingIcon />} Orders</h2>
-                  <hr/>
-                  <h5 class="card-text">25</h5>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+    <Layout shouldShowHeader={false}>
+      <Container maxWidth={false} >
+        <Grid container spacing={3}>
+          <Grid item lg={3} sm={6} xl={3} xs={12}>
+            <OrdersCard />
+          </Grid>
+          <Grid item lg={3} sm={6} xl={3} xs={12}>
+            <OrdersCompleteCard />
+          </Grid>
+          <Grid item lg={3} sm={6} xl={3} xs={12}>
+            <CustomerCard />
+          </Grid>
+          <Grid item lg={3} sm={6} xl={3} xs={12}>
+            <ProgressCard />
+          </Grid>
+          <Grid item lg={8} md={12} xl={9} xs={12}>
+            <RecentSales />
+          </Grid>
+          <Grid item lg={4} md={6} xl={3} xs={12}>
+            <ProductsCard />
+          </Grid>
+        </Grid>
+      </Container>
     </Layout>
   );
 }

@@ -4,7 +4,7 @@ import Layout from '../components/Layout'
 export default function About() {
   return (
     <Layout shouldShowSidebar={false}>
-      <h1>About Page</h1>
+        <h1>About Us</h1>
     </Layout>
-  )
+  );
 }

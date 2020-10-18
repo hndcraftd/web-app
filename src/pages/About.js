@@ -4,10 +4,10 @@ import Layout from "../components/Layout";
 
 import LocalShippingIcon from '@material-ui/icons/LocalShipping';
 
-export default function Dashboard() {
+export default function About() {
   return (
-    <Layout shouldShowHeader={false}>
-        <h1>Hello, Name</h1>
+    <Layout shouldShowSidebar={false}>
+        <h1>About Us</h1>
     </Layout>
   );
 }
